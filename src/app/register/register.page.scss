@@ -1,0 +1,79 @@
+.container {
+  text-align: center;
+  padding-top: 40px;
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.sub {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.form-box {
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  margin: 0 auto;
+}
+
+.label {
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.input-box {
+  width: 100%;
+  background: #f1f1f1;
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+
+  ion-icon {
+    font-size: 20px;
+    margin-right: 10px;
+    color: #777;
+  }
+
+  input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 15px;
+  }
+}
+
+.btn {
+  width: 100%;
+  background: linear-gradient(90deg, #007bff, #4da3ff);
+  padding: 12px;
+  color: white;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.link {
+  margin-top: 15px;
+  font-size: 14px;
+
+  a {
+    color: #007bff;
+    font-weight: 600;
+  }
+}

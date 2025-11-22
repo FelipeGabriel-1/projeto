@@ -1,0 +1,40 @@
+<ion-content class="ion-padding">
+
+  <div class="container">
+
+    <h1>Crie sua Conta</h1>
+    <p class="sub">Registre-se para acessar clima e sugestões de roupas</p>
+
+    <div class="form-box">
+
+      <label class="label">E-mail</label>
+      <div class="input-box">
+        <ion-icon name="mail-outline"></ion-icon>
+        <input type="email" [(ngModel)]="email" placeholder="seu@email.com">
+      </div>
+
+      <label class="label">Senha</label>
+      <div class="input-box">
+        <ion-icon name="lock-closed-outline"></ion-icon>
+        <input type="password" [(ngModel)]="password" placeholder="Sua senha">
+      </div>
+
+      <label class="label">Confirmar senha</label>
+      <div class="input-box">
+        <ion-icon name="lock-closed-outline"></ion-icon>
+        <input type="password" [(ngModel)]="confirmPassword" placeholder="Repita a senha">
+      </div>
+
+      <button class="btn" (click)="register()">Criar Conta</button>
+
+      <p class="login-text">
+  Já tem conta?
+  <a routerLink="/home">Entrar</a>
+</p>
+
+
+    </div>
+
+  </div>
+
+</ion-content>
