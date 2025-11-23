@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/inicial"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Histórico de Buscas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list *ngIf="(historico$ | async) as historico">
+    
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Últimas Buscas</ion-card-title>
+        <ion-note class="ion-padding-start">Dados carregados em tempo real do Firebase</ion-note>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-item lines="full" *ngIf="historico.length === 0">
+      <ion-label>Nenhuma busca registrada ainda.</ion-label>
+    </ion-item>
+    
+    <ion-item *ngFor="let item of historico" lines="inset">
+      <ion-icon name="thermometerOutline" slot="start" color="primary"></ion-icon>
+      
+      <ion-label class="ion-text-wrap">
+        <h2>{{ item.cidade }}</h2>
+        <p>
+          <ion-icon name="calendarOutline" slot="start"></ion-icon>
+          {{ item.data?.toDate() | date: 'dd/MM/yyyy' }}
+        </p>
+      </ion-label>
+      
+      <ion-note slot="end" class="ion-text-right">
+        <h1>{{ item.temperatura }}</h1>
+        <p>
+          <ion-icon name="timeOutline"></ion-icon>
+          {{ item.data?.toDate() | date: 'HH:mm' }}
+        </p>
+      </ion-note>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

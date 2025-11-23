@@ -5,28 +5,28 @@
     <h1 class="titulo">Tempo em Cores</h1>
     <p class="subtitulo">Faça login para ver o clima e sugestões de roupas</p>
 
-    <div class="card">
+    <form (ngSubmit)="login()" class="card"> 
 
       <label class="label">E-mail</label>
       <div class="input-box">
-        <ion-icon name="mail-outline"></ion-icon>
-        <input type="email" [(ngModel)]="email" placeholder="seu@email.com">
+        <ion-icon name="mail-outline"></ion-icon> 
+        <input type="email" [(ngModel)]="email" name="email" placeholder="seu@email.com">
       </div>
 
       <label class="label">Senha</label>
       <div class="input-box">
         <ion-icon name="lock-closed-outline"></ion-icon>
-        <input type="password" [(ngModel)]="password" placeholder="Sua senha">
+        <input type="password" [(ngModel)]="password" name="password" placeholder="Sua senha">
       </div>
 
-      <button class="btn" (click)="login()">Entrar</button>
+      <button type="submit" class="btn">Entrar</button>
 
       <p class="register-text">
         Não tem conta?
-       <a routerLink="/register" class="register-text">Cadastre-se aqui</a>
+        <a routerLink="/register" class="register-text">Cadastre-se aqui</a>
       </p>
 
-    </div>
+    </form>
   </div>
 
 </ion-content>

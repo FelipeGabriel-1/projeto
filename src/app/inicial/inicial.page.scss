@@ -1,0 +1,197 @@
+/* src/app/inicial/inicial.page.scss */
+
+/* ------------------------------------------------------------------ */
+/* 1. CORREÇÃO DE RESPONSIVIDADE (Cards Centralizados e Limitados) */
+/* ------------------------------------------------------------------ */
+.ion-padding {
+    /* Centraliza o conteúdo (cards) em telas maiores (desktop) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    /* Define a largura máxima para os cards */
+    ion-card {
+        max-width: 600px; /* Limita a largura em telas grandes */
+        width: 100%; 
+        margin-bottom: 15px; 
+
+        /* Ajusta o espaçamento do novo input moderno para o botão */
+        ion-input.ion-margin-bottom {
+            margin-bottom: 15px; 
+        }
+    }
+}
+
+
+/* ------------------------------------------------------------------ */
+/* 2. ESTILOS DO CARD DO CLIMA (Ícone Grande, Cores Dinâmicas e Legibilidade) */
+/* ------------------------------------------------------------------ */
+ion-card.clima-card {
+    color: white; 
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    padding-bottom: 10px;
+
+    /* Estilo do cabeçalho da cidade */
+    .city-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        ion-icon { 
+            font-size: 1.5rem; 
+            margin-right: 5px; 
+            color: white;
+            --ionicon-color: white;
+        }
+        .city-name { 
+            font-size: 1.6rem; 
+            font-weight: 600; 
+            flex-grow: 1; 
+            color: white;
+        }
+        .refresh-icon { 
+            font-size: 1.4rem; 
+            cursor: pointer; 
+            padding: 5px; /* Aumenta a área de clique */
+        }
+    }
+
+    /* Estilo do Ícone Gigante */
+    .main-clima-icon {
+        margin-top: 10px;
+        margin-bottom: 5px;
+        ion-icon {
+            font-size: 6rem; /* Reduz o tamanho do ícone principal */
+            --ionicon-color: white; 
+        }
+    }
+    
+    .clima-info {
+        p, .city-name, .description, h2 { 
+            color: white; 
+        }
+
+        h2 {
+            font-size: 4.0rem; /* Aumenta a temperatura principal */
+            font-weight: 700;
+            margin: 0px 0 5px 0;
+        }
+        
+        .description {
+            font-size: 1.2rem;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+    }
+
+    /* -------------------------------------------------- */
+    /* 3. ESTILO DO GRID SECUNDÁRIO (MIN/MAX, UMIDADE, VENTO) */
+    /* -------------------------------------------------- */
+    .secondary-info {
+        background: rgba(0, 0, 0, 0.15); /* Fundo levemente transparente e mais escuro */
+        padding: 10px 0;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        
+        ion-col {
+            border-right: 1px solid rgba(255, 255, 255, 0.4);
+            &:last-child {
+                border-right: none;
+            }
+        }
+        
+        .info-icon {
+            font-size: 2.0rem;
+            margin-bottom: 5px;
+            --ionicon-color: white;
+        }
+        .data-value {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin: 0;
+        }
+        .data-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            margin: 0;
+        }
+    }
+}
+
+/* ------------------------------------------------------------------ */
+/* 4. ESTILO DO CARD DE SUGESTÃO DE ROUPAS */
+/* ------------------------------------------------------------------ */
+ion-card.sugestao-card {
+    background: white; 
+    color: #333; 
+    box-shadow: none; 
+    border-radius: 10px;
+    margin: 15px 0 0 0; 
+    
+    ion-card-content {
+        padding: 15px !important;
+    }
+    
+    .sugestao-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        
+        .shirt-icon {
+            font-size: 1.8rem;
+            color: var(--ion-color-secondary);
+            margin-right: 10px;
+        }
+        
+        ion-card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+        }
+    }
+    
+    p {
+        font-size: 0.95rem;
+        color: #555;
+        line-height: 1.4;
+        
+        /* Estiliza o texto em negrito (**) dentro da sugestão de roupas */
+        strong {
+            font-weight: 600;
+            color: var(--ion-color-primary);
+        }
+    }
+}
+
+/* ------------------------------------------------------------------ */
+/* 5. CLASSES DE FUNDO DINÂMICO (Mantidas) */
+/* ------------------------------------------------------------------ */
+
+.fundo-sol {
+    background: linear-gradient(135deg, #FFD700, #FFA500); 
+}
+
+.fundo-nublado {
+    background: linear-gradient(135deg, #a0a0a0, #708090); 
+}
+
+.fundo-chuva {
+    background: linear-gradient(135deg, #4682B4, #5F9EA0); 
+}
+
+.fundo-tempestade {
+    background: linear-gradient(135deg, #505050, #2C3E50); 
+}
+
+/* Condições de fundo claro: Força texto e ícones escuros (LEGIBILIDADE) */
+.fundo-neve, .fundo-neblina, .fundo-default {
+    background: linear-gradient(135deg, #ADD8E6, #E0FFFF); 
+    
+    .clima-info p, .clima-info .description, .clima-info h2, .city-header .city-name,
+    .main-clima-icon ion-icon, .secondary-info .data-value, .secondary-info .data-label,
+    .secondary-info ion-icon, .city-header ion-icon {
+        color: #333 !important; 
+        --ionicon-color: #333 !important; 
+    }
+}

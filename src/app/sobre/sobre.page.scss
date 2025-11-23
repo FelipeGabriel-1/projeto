@@ -1,0 +1,90 @@
+/* src/app/sobre/sobre.page.scss */
+
+/* Estilos para o Card principal (Descrição do App) */
+ion-card {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 5px;
+}
+
+ion-card-title {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--ion-color-primary);
+}
+
+/* Estilos para os divisores de item (Títulos das Seções) */
+ion-item-divider {
+    --background: var(--ion-color-light); /* Garante a cor de fundo cinza claro */
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ion-color-dark);
+    margin-top: 20px;
+    border-radius: 8px;
+    
+    ion-icon {
+        font-size: 1.2rem;
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+}
+
+/* Estilos para as listas e itens */
+ion-list {
+    background: none; /* Remove o fundo branco padrão do ion-list */
+}
+
+ion-item {
+    --padding-start: 0;
+    --inner-padding-end: 0;
+}
+
+/* Estilo específico para a lista de Desenvolvedores */
+ion-list:last-of-type {
+    margin-top: 10px;
+}
+
+/* Estilo para os cards dos membros (Desenvolvedores) */
+ion-item:has(ion-avatar) {
+    --background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    --border-radius: 10px; /* Garante que o item seja arredondado */
+    
+    ion-label h2 {
+        font-weight: 600;
+        font-size: 1.1em;
+        margin-bottom: 2px;
+    }
+    
+    ion-label p {
+        color: var(--ion-color-medium);
+    }
+}
+
+
+/* Estilo para os Avatares (Iniciais do nome) */
+ion-avatar {
+    --border-radius: 50%; /* Garante que o avatar seja redondo */
+    width: 45px;
+    height: 45px;
+    background-color: var(--ion-color-primary); /* Fundo colorido */
+    color: white; /* Cor do texto (inicial) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+/* Ajuste fino para os itens de Informações Acadêmicas */
+ion-item ion-label {
+    font-weight: 500;
+}
+
+ion-item ion-text {
+    font-weight: 600;
+    color: var(--ion-color-dark);
+}

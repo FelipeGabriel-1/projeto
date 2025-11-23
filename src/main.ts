@@ -1,25 +1,32 @@
+import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { RouteReuseStrategy, provideRouter, withPreloading, PreloadAllModules } from '@angular/router';
-import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalone';
-import { routes } from './app/app.routes'; // Importa as rotas CORRETAS
-import { AppComponent } from './app/app.component';
+import { RouteReuseStrategy, provideRouter } from '@angular/router';
+import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalone'; 
+import { provideHttpClient } from '@angular/common/http'; 
 
-// Importações e configurações do Firebase
-import { provideFirebaseApp } from '@angular/fire/app';
-import { initializeApp } from 'firebase/app';
-import { provideAuth, getAuth } from '@angular/fire/auth';
+import { routes } from './app/app.routes';
+import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
+
+// Importações do Firebase
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore'; 
+
+if (environment.production) {
+  enableProdMode();
+}
 
 bootstrapApplication(AppComponent, {
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    provideIonicAngular(),
-    // Configura o roteamento com as rotas exportadas
-    provideRouter(routes, withPreloading(PreloadAllModules)),
-
-    // Inicialização do Firebase (lendo o environment.ts)
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    // Injeção de dependência para o serviço de Autenticação
+    provideIonicAngular(), 
+    provideRouter(routes),
+    provideHttpClient(),
+    
+    // CORREÇÃO CRÍTICA: Passando os provedores diretamente para o array 'providers'
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
   ],
 });
