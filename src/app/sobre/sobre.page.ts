@@ -64,10 +64,7 @@ export class SobrePage implements OnInit {
 
   // Membros do Grupo
   membros: Membro[] = [
-    { nome: "Danilo César", matricula: "20250001", funcao: "Líder do Projeto" },
-    { nome: "Felipe Gabriel", matricula: "20250002", funcao: "Desenvolvedor Mobile" },
-    { nome: "Miguel Lourenço", matricula: "20250003", funcao: "Desenvolvedor Mobile" },
-    { nome: "João Marcelo", matricula: "20250004", funcao: "Desenvolvedor Mobile" }
+    { nome: "Caio Moreno", matricula: "24110313", funcao: "Líder do Projeto" }
   ];
 
   constructor() { }

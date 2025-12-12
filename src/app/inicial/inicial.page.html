@@ -1,124 +1,247 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    
-    <ion-title>Clima Fácil - Dashboard</ion-title>
-    
-    <ion-buttons slot="end">
-      
-      <ion-button [routerLink]="['/sobre']" fill="clear" color="light">
-        <ion-icon name="information-circle-outline" slot="start"></ion-icon>
-        <ion-label>Sobre</ion-label>
-      </ion-button>
 
-      <ion-button (click)="logout()" fill="clear" color="light">
-        <ion-icon name="log-out-outline" slot="start"></ion-icon>
-        <ion-label>Sair</ion-label>
-      </ion-button>
+  <ion-toolbar color="primary">
 
-    </ion-buttons>
-  </ion-toolbar>
+    <ion-buttons slot="start">
+
+      <ion-menu-button></ion-menu-button>
+
+    </ion-buttons>
+
+   
+
+    <ion-title>Tempo Vestido- Dashboard</ion-title>
+
+   
+
+    <ion-buttons slot="end">
+
+     
+
+      <ion-button [routerLink]="['/sobre']" fill="clear" color="light">
+
+        <ion-icon name="information-circle-outline" slot="start"></ion-icon>
+
+        <ion-label>Sobre</ion-label>
+
+      </ion-button>
+
+
+
+      <ion-button (click)="logout()" fill="clear" color="light">
+
+        <ion-icon name="log-out-outline" slot="start"></ion-icon>
+
+        <ion-label>Sair</ion-label>
+
+      </ion-button>
+
+
+
+    </ion-buttons>
+
+  </ion-toolbar>
+
 </ion-header>
 
+
+
 <ion-content [fullscreen]="true">
-  <div class="ion-padding">
 
-        <ion-card>
-      <ion-card-header>
-        <ion-card-title>Buscar Clima</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        
-        <ion-input 
-            label="Nome da Cidade" 
+  <div class="ion-padding">
+
+
+
+        <ion-card>
+
+      <ion-card-header>
+
+        <ion-card-title>Buscar Clima</ion-card-title>
+
+      </ion-card-header>
+
+      <ion-card-content>
+
+       
+
+        <ion-input
+
+            label="Nome da Cidade"
+
             label-placement="floating"
-            placeholder="Ex: Rio de Janeiro"
-            [(ngModel)]="cidade" 
-            (keyup.enter)="buscarClima()"
-            fill="outline"
-            class="ion-margin-bottom"> 
-        </ion-input>
-        
-        <ion-button expand="full" (click)="buscarClima()" color="secondary">
-          <ion-icon slot="start" name="search-outline"></ion-icon>
-          Buscar
-        </ion-button>
-        
-      </ion-card-content>
-    </ion-card>
 
-        <ion-card *ngIf="climaDisplay" [class]="climaCardClass + ' clima-card'">
-      <ion-card-content>
+            placeholder="Ex: Rio de Janeiro"
+
+            [(ngModel)]="cidade"
+
+            (keyup.enter)="buscarClima()"
+
+            fill="outline"
+
+            class="ion-margin-bottom">
+
+        </ion-input>
+
+       
+
+        <ion-button expand="full" (click)="buscarClima()" color="secondary">
+
+          <ion-icon slot="start" name="search-outline"></ion-icon>
+
+          Buscar
+
+        </ion-button>
+
+       
+
+      </ion-card-content>
+
+    </ion-card>
+
+
+
+        <ion-card *ngIf="climaDisplay" [class]="climaCardClass + ' clima-card'">
+
+      <ion-card-content>
+
         <div class="city-header">
+
             <ion-icon name="location-outline" slot="start"></ion-icon>
+
             <ion-label class="city-name">{{ climaDisplay.name }}</ion-label>
+
             <ion-icon name="refresh-outline" (click)="buscarClima()" class="refresh-icon"></ion-icon>
+
         </div>
+
+
 
         <div class="main-clima-icon ion-text-center">
-            <ion-icon [name]="climaIconName"></ion-icon> 
+
+            <ion-icon [name]="climaIconName"></ion-icon>
+
         </div>
 
-        <div class="clima-info ion-text-center">
-                        <h2>{{ climaDisplay.temp | number:'1.0-0' }}°C</h2>
-            <p class="description">Condição: {{ climaDisplay.description }}</p>
-        </div>
+
+
+        <div class="clima-info ion-text-center">
+
+                        <h2>{{ climaDisplay.temp | number:'1.0-0' }}°C</h2>
+
+            <p class="description">Condição: {{ climaDisplay.description }}</p>
+
+        </div>
+
+
 
         <ion-grid class="secondary-info">
+
             <ion-row>
-                <ion-col size="4" class="ion-text-center">
-                    <ion-icon name="thermometer-outline" class="info-icon"></ion-icon>
-                    <p class="data-value">{{ climaDisplay.temp_min | number:'1.0-0' }}°C / {{ climaDisplay.temp_max | number:'1.0-0' }}°C</p>
-                    <p class="data-label">Min / Max</p>
-                </ion-col>
-                
-                <ion-col size="4" class="ion-text-center">
-                    <ion-icon name="water-outline" class="info-icon"></ion-icon>
-                    <p class="data-value">{{ climaDisplay.humidity }}%</p>
-                    <p class="data-label">Umidade</p>
-                </ion-col>
 
                 <ion-col size="4" class="ion-text-center">
-                    <ion-icon name="wind-outline" class="info-icon"></ion-icon>
-                    <p class="data-value">{{ climaDisplay.wind_speed | number:'1.0-0' }} km/h</p>
-                    <p class="data-label">Vento</p>
+
+                    <ion-icon name="thermometer-outline" class="info-icon"></ion-icon>
+
+                    <p class="data-value">{{ climaDisplay.temp_min | number:'1.0-0' }}°C / {{ climaDisplay.temp_max | number:'1.0-0' }}°C</p>
+
+                    <p class="data-label">Min / Max</p>
+
                 </ion-col>
+
+               
+
+                <ion-col size="4" class="ion-text-center">
+
+                    <ion-icon name="water-outline" class="info-icon"></ion-icon>
+
+                    <p class="data-value">{{ climaDisplay.humidity }}%</p>
+
+                    <p class="data-label">Umidade</p>
+
+                </ion-col>
+
+
+
+                <ion-col size="4" class="ion-text-center">
+
+                    <ion-icon name="wind-outline" class="info-icon"></ion-icon>
+
+                    <p class="data-value">{{ climaDisplay.wind_speed | number:'1.0-0' }} km/h</p>
+
+                    <p class="data-label">Vento</p>
+
+                </ion-col>
+
             </ion-row>
+
         </ion-grid>
 
+
+
         <ion-card class="sugestao-card">
+
             <ion-card-content>
+
                 <div class="sugestao-header">
+
                     <ion-icon name="shirt-outline" class="shirt-icon"></ion-icon>
+
                     <ion-card-title>Sugestão de Roupas</ion-card-title>
+
                 </div>
+
                 <p [innerHTML]="sugestaoRoupa"></p>
+
             </ion-card-content>
+
         </ion-card>
 
-      </ion-card-content>
-    </ion-card>
 
-        <ion-card *ngIf="(historico$ | async) as historicoRecente">
-      <ion-card-header>
-        <ion-card-title>Histórico Recente</ion-card-title>
-      </ion-card-header>
-      <ion-list lines="none">
-        <ion-item *ngIf="historicoRecente.length === 0">
-          <ion-label>Nenhuma busca recente salva.</ion-label>
-        </ion-item>
-        <ion-item *ngFor="let item of historicoRecente | slice:0:5" (click)="cidade = item.cidade; buscarClima()">
-          <ion-icon name="time-outline" slot="start"></ion-icon>
-          <ion-label>
-            {{ item.cidade }}
-          </ion-label>
-          <ion-text slot="end" color="primary">
-            {{ item.temperatura }}
-          </ion-text>
-        </ion-item>
-      </ion-list>
-    </ion-card>
-  </div>
+
+      </ion-card-content>
+
+    </ion-card>
+
+
+
+        <ion-card *ngIf="(historico$ | async) as historicoRecente">
+
+      <ion-card-header>
+
+        <ion-card-title>Histórico Recente</ion-card-title>
+
+      </ion-card-header>
+
+      <ion-list lines="none">
+
+        <ion-item *ngIf="historicoRecente.length === 0">
+
+          <ion-label>Nenhuma busca recente salva.</ion-label>
+
+        </ion-item>
+
+        <ion-item *ngFor="let item of historicoRecente | slice:0:5" (click)="cidade = item.cidade; buscarClima()">
+
+          <ion-icon name="time-outline" slot="start"></ion-icon>
+
+          <ion-label>
+
+            {{ item.cidade }}
+
+          </ion-label>
+
+          <ion-text slot="end" color="primary">
+
+            {{ item.temperatura }}
+
+          </ion-text>
+
+        </ion-item>
+
+      </ion-list>
+
+    </ion-card>
+
+  </div>
+
 </ion-content>
